@@ -1,0 +1,460 @@
+============================================================
+STUDENT PERFORMANCE DATASET - COMPREHENSIVE EDA
+Author: Cholpon Zhakshylykova
+============================================================
+
+1. DATASET OVERVIEW
+------------------------------
+Dataset Shape: (395, 33)
+Number of Students: 395
+Number of Features: 33
+
+Column Information:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 395 entries, 0 to 394
+Data columns (total 33 columns):
+ #   Column      Non-Null Count  Dtype 
+---  ------      --------------  ----- 
+ 0   school      395 non-null    object
+ 1   sex         395 non-null    object
+ 2   age         395 non-null    int64 
+ 3   address     395 non-null    object
+ 4   famsize     395 non-null    object
+ 5   Pstatus     395 non-null    object
+ 6   Medu        395 non-null    int64 
+ 7   Fedu        395 non-null    int64 
+ 8   Mjob        395 non-null    object
+ 9   Fjob        395 non-null    object
+ 10  reason      395 non-null    object
+ 11  guardian    395 non-null    object
+ 12  traveltime  395 non-null    int64 
+ 13  studytime   395 non-null    int64 
+ 14  failures    395 non-null    int64 
+ 15  schoolsup   395 non-null    object
+ 16  famsup      395 non-null    object
+ 17  paid        395 non-null    object
+ 18  activities  395 non-null    object
+ 19  nursery     395 non-null    object
+ 20  higher      395 non-null    object
+ 21  internet    395 non-null    object
+ 22  romantic    395 non-null    object
+ 23  famrel      395 non-null    int64 
+ 24  freetime    395 non-null    int64 
+ 25  goout       395 non-null    int64 
+ 26  Dalc        395 non-null    int64 
+ 27  Walc        395 non-null    int64 
+ 28  health      395 non-null    int64 
+ 29  absences    395 non-null    int64 
+ 30  G1          395 non-null    int64 
+ 31  G2          395 non-null    int64 
+ 32  G3          395 non-null    int64 
+dtypes: int64(16), object(17)
+memory usage: 102.0+ KB
+None
+
+First 5 rows:
+  school sex  age address famsize Pstatus  Medu  Fedu     Mjob      Fjob  reason guardian  traveltime  studytime  ...  nursery higher internet romantic famrel freetime goout Dalc Walc  health  absences  G1  G2  G3
+0     GP   F   18       U     GT3       A     4     4  at_home   teacher  course   mother           2          2  ...      yes    yes       no       no      4        3     4    1    1       3         6   5   6   6
+1     GP   F   17       U     GT3       T     1     1  at_home     other  course   father           1          2  ...       no    yes      yes       no      5        3     3    1    1       3         4   5   5   6
+2     GP   F   15       U     LE3       T     1     1  at_home     other   other   mother           1          2  ...      yes    yes      yes       no      4        3     2    2    3       3        10   7   8  10
+3     GP   F   15       U     GT3       T     4     2   health  services    home   mother           1          3  ...      yes    yes      yes      yes      3        2     2    1    1       5         2  15  14  15
+4     GP   F   16       U     GT3       T     3     3    other     other    home   father           1          2  ...      yes    yes       no       no      4        3     2    1    2       5         4   6  10  10
+
+[5 rows x 33 columns]
+
+Column Names:
+['school', 'sex', 'age', 'address', 'famsize', 'Pstatus', 'Medu', 'Fedu', 'Mjob', 'Fjob', 'reason', 'guardian', 'traveltime', 'studytime', 'failures', 'schoolsup', 'famsup', 'paid', 'activities', 'nursery', 'higher', 'internet', 'romantic', 'famrel', 'freetime', 'goout', 'Dalc', 'Walc', 'health', 'absences', 'G1', 'G2', 'G3']
+
+2. FEATURE DESCRIPTIONS
+------------------------------
+• school: Student’s school (binary: "GP" - Gabriel Pereira or "MS" - Mousinho da Silveira)
+• sex: Student’s sex (binary: "F" - female or "M" - male)
+• age: Student’s age (numeric: from 15 to 22)
+• address: Student’s home address type (binary: "U" - urban or "R" - rural)
+• famsize: Family size (binary: "LE3" - <= 3 or "GT3" - >3)
+• Pstatus: Parent’s cohabitation status (binary: "T" - together or "A" - apart)
+• Medu: Mother's education (0 to 4)
+• Fedu: Father's education (0 to 4)
+• Mjob: Mother's job (nominal)
+• Fjob: Father's job (nominal)
+• reason: Reason to choose this school (nominal)
+• guardian: Student’s guardian (nominal)
+• traveltime: Home to school travel time (1 to 4)
+• studytime: Weekly study time (1 to 4)
+• failures: Number of past class failures (numeric: n if 1<=n<3, else 4)
+• schoolsup: Extra educational support (binary: yes or no)
+• famsup: Family educational support (binary: yes or no)
+• paid: Extra paid classes (binary: yes or no)
+• activities: Extra-curricular activities (binary: yes or no)
+• nursery: Attended nursery school (binary: yes or no)
+• higher: Wants to take higher education (binary: yes or no)
+• internet: Internet access at home (binary: yes or no)
+• romantic: With a romantic relationship (binary: yes or no)
+• famrel: Quality of family relationships (1 to 5)
+• freetime: Free time after school (1 to 5)
+• goout: Going out with friends (1 to 5)
+• Dalc: Workday alcohol consumption (1 to 5)
+• Walc: Weekend alcohol consumption (1 to 5)
+• health: Current health status (1 to 5)
+• absences: Number of school absences
+• G1: First period grade (0 to 20)
+• G2: Second period grade (0 to 20)
+• G3: Final grade (0 to 20)
+
+3. DATA QUALITY ASSESSMENT
+------------------------------
+Missing Values:
+No missing values found!
+
+Duplicate Rows:
+Number of duplicate rows: 0
+
+Data Types:
+school        object
+sex           object
+age            int64
+address       object
+famsize       object
+Pstatus       object
+Medu           int64
+Fedu           int64
+Mjob          object
+Fjob          object
+reason        object
+guardian      object
+traveltime     int64
+studytime      int64
+failures       int64
+schoolsup     object
+famsup        object
+paid          object
+activities    object
+nursery       object
+higher        object
+internet      object
+romantic      object
+famrel         int64
+freetime       int64
+goout          int64
+Dalc           int64
+Walc           int64
+health         int64
+absences       int64
+G1             int64
+G2             int64
+G3             int64
+dtype: object
+
+4. DESCRIPTIVE STATISTICS
+------------------------------
+Numerical Features Summary:
+              age        Medu        Fedu  traveltime   studytime    failures      famrel    freetime       goout        Dalc        Walc      health    absences          G1          G2          G3
+count  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000  395.000000
+mean    16.696203    2.749367    2.521519    1.448101    2.035443    0.334177    3.944304    3.235443    3.108861    1.481013    2.291139    3.554430    5.708861   10.908861   10.713924   10.415190
+std      1.276043    1.094735    1.088201    0.697505    0.839240    0.743651    0.896659    0.998862    1.113278    0.890741    1.287897    1.390303    8.003096    3.319195    3.761505    4.581443
+min     15.000000    0.000000    0.000000    1.000000    1.000000    0.000000    1.000000    1.000000    1.000000    1.000000    1.000000    1.000000    0.000000    3.000000    0.000000    0.000000
+25%     16.000000    2.000000    2.000000    1.000000    1.000000    0.000000    4.000000    3.000000    2.000000    1.000000    1.000000    3.000000    0.000000    8.000000    9.000000    8.000000
+50%     17.000000    3.000000    2.000000    1.000000    2.000000    0.000000    4.000000    3.000000    3.000000    1.000000    2.000000    4.000000    4.000000   11.000000   11.000000   11.000000
+75%     18.000000    4.000000    3.000000    2.000000    2.000000    0.000000    5.000000    4.000000    4.000000    2.000000    3.000000    5.000000    8.000000   13.000000   13.000000   14.000000
+max     22.000000    4.000000    4.000000    4.000000    4.000000    3.000000    5.000000    5.000000    5.000000    5.000000    5.000000    5.000000   75.000000   19.000000   19.000000   20.000000
+
+Categorical Features Summary:
+
+sex:
+sex
+F    208
+M    187
+Name: count, dtype: int64
+Percentage distribution (%):
+sex
+F    52.66
+M    47.34
+Name: proportion, dtype: float64
+
+school:
+school
+GP    349
+MS     46
+Name: count, dtype: int64
+Percentage distribution (%):
+school
+GP    88.35
+MS    11.65
+Name: proportion, dtype: float64
+
+address:
+address
+U    307
+R     88
+Name: count, dtype: int64
+Percentage distribution (%):
+address
+U    77.72
+R    22.28
+Name: proportion, dtype: float64
+
+famsize:
+famsize
+GT3    281
+LE3    114
+Name: count, dtype: int64
+Percentage distribution (%):
+famsize
+GT3    71.14
+LE3    28.86
+Name: proportion, dtype: float64
+
+Pstatus:
+Pstatus
+T    354
+A     41
+Name: count, dtype: int64
+Percentage distribution (%):
+Pstatus
+T    89.62
+A    10.38
+Name: proportion, dtype: float64
+
+schoolsup:
+schoolsup
+no     344
+yes     51
+Name: count, dtype: int64
+Percentage distribution (%):
+schoolsup
+no     87.09
+yes    12.91
+Name: proportion, dtype: float64
+
+famsup:
+famsup
+yes    242
+no     153
+Name: count, dtype: int64
+Percentage distribution (%):
+famsup
+yes    61.27
+no     38.73
+Name: proportion, dtype: float64
+
+paid:
+paid
+no     214
+yes    181
+Name: count, dtype: int64
+Percentage distribution (%):
+paid
+no     54.18
+yes    45.82
+Name: proportion, dtype: float64
+
+activities:
+activities
+yes    201
+no     194
+Name: count, dtype: int64
+Percentage distribution (%):
+activities
+yes    50.89
+no     49.11
+Name: proportion, dtype: float64
+
+higher:
+higher
+yes    375
+no      20
+Name: count, dtype: int64
+Percentage distribution (%):
+higher
+yes    94.94
+no      5.06
+Name: proportion, dtype: float64
+
+5. TARGET VARIABLE ANALYSIS
+------------------------------
+Final Grade (G3) Distribution:
+G3
+0     38
+4      1
+5      7
+6     15
+7      9
+8     32
+9     28
+10    56
+11    47
+12    31
+13    31
+14    27
+15    33
+16    16
+17     6
+18    12
+19     5
+20     1
+Name: count, dtype: int64
+Mean final grade: 10.42
+
+============================================================
+RUNNING COMPREHENSIVE ANALYSIS...
+============================================================
+Statistical Tests for Feature Significance:
+==================================================
+
+T-tests for Numerical Features:
+age: t-statistic = -3.620, p-value = 0.000333 ***
+absences: t-statistic = -1.836, p-value = 0.067040 
+G1: t-statistic = 17.651, p-value = 0.000000 ***
+G2: t-statistic = 20.892, p-value = 0.000000 ***
+failures: t-statistic = -7.113, p-value = 0.000000 ***
+studytime: t-statistic = 1.483, p-value = 0.138804 
+
+Chi-square Tests for Categorical Features:
+sex: Chi-square = 1.680, p-value = 0.194883 
+school: Chi-square = 0.206, p-value = 0.649652 
+famsize: Chi-square = 0.509, p-value = 0.475574 
+schoolsup: Chi-square = 3.331, p-value = 0.067998 
+higher: Chi-square = 8.353, p-value = 0.003850 **
+
+Significance levels: *** p<0.001, ** p<0.01, * p<0.05
+Principal Component Analysis:
+Explained variance ratio: [0.20253726 0.12803264 0.098212   0.08016443 0.07363373]
+Cumulative explained variance: [0.20253726 0.33056989 0.42878189 0.50894632 0.58258005]
+
+Feature Importance in First Principal Component:
+       Feature       PC1       PC2
+14          G2  0.454715  0.194822
+13          G1  0.444400  0.178581
+15        pass  0.404601  0.168677
+5     failures  0.334398  0.042220
+1         Medu  0.222889  0.256915
+10        Walc  0.219578  0.505975
+2         Fedu  0.209485  0.247330
+8        goout  0.196610  0.361283
+9         Dalc  0.196084  0.489442
+0          age  0.184570  0.031529
+4    studytime  0.169075  0.204683
+3   traveltime  0.143755  0.020896
+7     freetime  0.083788  0.285110
+11      health  0.076439  0.052852
+12    absences  0.069070  0.136110
+6       famrel  0.019610  0.026809
+Grade Group Analysis:
+             count  avg_studytime  avg_absences  avg_failures    avg_age
+grade_group                                                             
+0-4             39       1.974359      0.564103      0.948718  17.076923
+5-9             91       1.934066      9.417582      0.582418  17.000000
+10-14          192       2.041667      5.760417      0.203125  16.614583
+15-20           72       2.152778      3.694444      0.041667  16.333333
+
+10. KEY INSIGHTS AND RECOMMENDATIONS
+--------------------------------------------------
+KEY FINDINGS:
+• Overall pass rate (G3>=10): 67.1%
+• Average study time: 2.04
+• Average absences: 5.7
+• Average past failures: 0.33
+
+MOST IMPORTANT FEATURES (by correlation with final grade):
+1. G2: 0.905
+2. G1: 0.801
+3. pass: 0.770
+4. Medu: 0.217
+5. Fedu: 0.152
+
+RECOMMENDATIONS:
+• Monitor and support students with high past failures.
+• Encourage regular study habits and minimize absences.
+• Early intervention for students underperforming in G1/G2.
+
+============================================================
+EDA COMPLETED SUCCESSFULLY!
+============================================================
+
+FINAL SUMMARY:
+• Total Students: 395
+• Total Features: 35
+• Pass Rate: 67.1%
+• Average Study Time: 2.04
+• Average Absences: 5.7
+
+Key Statistics:
+age: {'count': 395.0, 'mean': 16.696202531645568, 'std': 1.2760427246056283, 'min': 15.0, '25%': 16.0, '50%': 17.0, '75%': 18.0, 'max': 22.0}
+Medu: {'count': 395.0, 'mean': 2.749367088607595, 'std': 1.0947351414285367, 'min': 0.0, '25%': 2.0, '50%': 3.0, '75%': 4.0, 'max': 4.0}
+Fedu: {'count': 395.0, 'mean': 2.5215189873417723, 'std': 1.088200545826944, 'min': 0.0, '25%': 2.0, '50%': 2.0, '75%': 3.0, 'max': 4.0}
+traveltime: {'count': 395.0, 'mean': 1.4481012658227848, 'std': 0.6975047549086825, 'min': 1.0, '25%': 1.0, '50%': 1.0, '75%': 2.0, 'max': 4.0}
+studytime: {'count': 395.0, 'mean': 2.0354430379746837, 'std': 0.8392403464185556, 'min': 1.0, '25%': 1.0, '50%': 2.0, '75%': 2.0, 'max': 4.0}
+failures: {'count': 395.0, 'mean': 0.3341772151898734, 'std': 0.7436509736062507, 'min': 0.0, '25%': 0.0, '50%': 0.0, '75%': 0.0, 'max': 3.0}
+famrel: {'count': 395.0, 'mean': 3.9443037974683546, 'std': 0.8966586076885047, 'min': 1.0, '25%': 4.0, '50%': 4.0, '75%': 5.0, 'max': 5.0}
+freetime: {'count': 395.0, 'mean': 3.2354430379746835, 'std': 0.9988620396657205, 'min': 1.0, '25%': 3.0, '50%': 3.0, '75%': 4.0, 'max': 5.0}
+goout: {'count': 395.0, 'mean': 3.108860759493671, 'std': 1.1132781740183424, 'min': 1.0, '25%': 2.0, '50%': 3.0, '75%': 4.0, 'max': 5.0}
+Dalc: {'count': 395.0, 'mean': 1.481012658227848, 'std': 0.8907414280909669, 'min': 1.0, '25%': 1.0, '50%': 1.0, '75%': 2.0, 'max': 5.0}
+Walc: {'count': 395.0, 'mean': 2.2911392405063293, 'std': 1.2878965924510932, 'min': 1.0, '25%': 1.0, '50%': 2.0, '75%': 3.0, 'max': 5.0}
+health: {'count': 395.0, 'mean': 3.5544303797468353, 'std': 1.3903033913095773, 'min': 1.0, '25%': 3.0, '50%': 4.0, '75%': 5.0, 'max': 5.0}
+absences: {'count': 395.0, 'mean': 5.708860759493671, 'std': 8.00309568710818, 'min': 0.0, '25%': 0.0, '50%': 4.0, '75%': 8.0, 'max': 75.0}
+G1: {'count': 395.0, 'mean': 10.90886075949367, 'std': 3.319194671507669, 'min': 3.0, '25%': 8.0, '50%': 11.0, '75%': 13.0, 'max': 19.0}
+G2: {'count': 395.0, 'mean': 10.713924050632912, 'std': 3.7615046595560298, 'min': 0.0, '25%': 9.0, '50%': 11.0, '75%': 13.0, 'max': 19.0}
+G3: {'count': 395.0, 'mean': 10.415189873417722, 'std': 4.5814426109978434, 'min': 0.0, '25%': 8.0, '50%': 11.0, '75%': 14.0, 'max': 20.0}
+pass: {'count': 395.0, 'mean': 0.6708860759493671, 'std': 0.47048735363719635, 'min': 0.0, '25%': 0.0, '50%': 1.0, '75%': 1.0, 'max': 1.0}
+
+Missing Values:
+school: 0
+sex: 0
+age: 0
+address: 0
+famsize: 0
+Pstatus: 0
+Medu: 0
+Fedu: 0
+Mjob: 0
+Fjob: 0
+reason: 0
+guardian: 0
+traveltime: 0
+studytime: 0
+failures: 0
+schoolsup: 0
+famsup: 0
+paid: 0
+activities: 0
+nursery: 0
+higher: 0
+internet: 0
+romantic: 0
+famrel: 0
+freetime: 0
+goout: 0
+Dalc: 0
+Walc: 0
+health: 0
+absences: 0
+G1: 0
+G2: 0
+G3: 0
+pass: 0
+grade_group: 1
+
+Correlation with G3:
+age: -0.162
+Medu: 0.217
+Fedu: 0.152
+traveltime: -0.117
+studytime: 0.098
+failures: -0.360
+famrel: 0.051
+freetime: 0.011
+goout: -0.133
+Dalc: -0.055
+Walc: -0.052
+health: -0.061
+absences: 0.034
+G1: 0.801
+G2: 0.905
+G3: 1.000
+pass: 0.770
+
+============================================================
+END OF ANALYSIS
+Author: Cholpon Zhakshylykova
+Dataset: Student Performance (UCI)
+============================================================

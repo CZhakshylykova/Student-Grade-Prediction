@@ -46,7 +46,7 @@ Features include demographic data (age, gender, address), social factors (family
 ##  Next Steps
 - Perform hyperparameter tuning (GridSearchCV or Optuna) for further improvements.  
 - Try probabilistic models such as **NGBoost** to quantify prediction uncertainty.  
-- Deploy the best model as a simple web app using **Streamlit or FastAPI**.  
+
 
 ---
 
